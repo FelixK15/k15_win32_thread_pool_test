@@ -1,0 +1,4 @@
+.vcvars64.bat.cached_path
+*.pdb
+*.obj
+build
