@@ -8,7 +8,7 @@ My main motivation for this was driven by the fact that msvc's std::for_each() u
     * You only need this when you want to limit the amount of active worker threads (don't worry, it won't oversubscribe on it's own)
 * The default name for threads spawned by the thread pool will be "Thread Pool"
 * The threads will only be created in these scenarios:
-    * When [SubmitThreadpoolWork()(https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-submitthreadpoolwork) is called and all threads created up to this point are busy
+    * When [SubmitThreadpoolWork()](https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-submitthreadpoolwork) is called and all threads created up to this point are busy
     * When [SetThreadPoolThreadMinimum()](https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolthreadminimum) is called and the current number of threads is less than the minimum
 * There's no way to direct control to adjust on which processor the threads will be running on
     * There's [SetThreadPoolCallbackRunsLong()](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadpoolcallbackrunslong), which might be a hint to the thread pool to let thread's be run on efficiency cores only.
