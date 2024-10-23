@@ -12,7 +12,7 @@ My main motivation for this was driven by the fact that msvc's std::for_each() u
     * When [SetThreadPoolThreadMinimum()](https://learn.microsoft.com/en-us/windows/win32/api/threadpoolapiset/nf-threadpoolapiset-setthreadpoolthreadminimum) is called and the current number of threads is less than the minimum
 * There's no way to direct control to adjust on which processor the threads will be running on
     * There's [SetThreadPoolCallbackRunsLong()](https://learn.microsoft.com/en-us/windows/win32/api/winbase/nf-winbase-setthreadpoolcallbackrunslong), which might be a hint to the thread pool to let thread's be run on efficiency cores only.
-* Overhead of repeatedly calling SubmitThreadpoolWork() could add up (~4.000us per call, if you have lots of jobs this can quickly add up)
+* Overhead of repeatedly calling SubmitThreadpoolWork() could add up (~4-5us per call, if you have 100s of jobs this can quickly add up)
 
 ## Conclusion
 For a quick and easy "I just want to have an easy-to-use thread pool and I don't care about the details" this might very well work out for you. std::for_each() is basically the perfect use-case for this API.
