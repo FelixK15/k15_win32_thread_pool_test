@@ -16,4 +16,6 @@ My main motivation for this was driven by the fact that msvc's std::for_each() u
 
 ## Conclusion
 For a quick and easy "I just want to have an easy-to-use thread pool and I don't care about the details" this might very well work out for you. std::for_each() is basically the perfect use-case for this API.
+That being said, I feel like the API would've benefited greatly from a batch version of SubmitThreadpoolWork().
+
 For anything other, especially if you want more control, I'd still recommend rolling your own simple queue-based job system.
